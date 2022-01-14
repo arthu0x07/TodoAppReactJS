@@ -34,16 +34,6 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: number) {
-    // setTasks(
-    //   tasks.filter((task) => {
-    //     if (task.id == id) {
-    //       task.isComplete = !task.isComplete;
-    //       return true;
-    //     }
-    //     return true;
-    //   }),
-    // );
-
     setTasks(
       tasks.map((task) => {
         if (task.id == id) {
@@ -54,9 +44,18 @@ export function TaskList() {
       })
     );
   }
-  
+
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
+
+    setTasks(
+        tasks.filter((task) => {
+          if (task.id == id) {
+            return false;
+          }
+          return true;
+        }),
+      );
   }
 
   return (
